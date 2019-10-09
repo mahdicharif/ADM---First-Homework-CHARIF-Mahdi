@@ -3,6 +3,6 @@
 
 Alongside this readme file, I have attached the following documents :
 
-- A pdf file (submissions.pdf), containing all the submissions I have made on hackerrank.
-
 - A python file (scripts.py), containing the commented codes of each exercises. The title of the exercises is reminded before each program.
+
+- A list of all the submissions I have made on Hackerrank (screenshots)
