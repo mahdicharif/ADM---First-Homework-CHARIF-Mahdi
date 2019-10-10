@@ -84,7 +84,6 @@ from __future__ import print_function
 if __name__ == '__main__':
     n = int(input())
 
-#To concatenate numbers, we just use the sum of the difference between n and each number lower to it, and multiply it by the power of corresponding 10
 s=0
 for nb in range(1, n+1):
     print (nb, end="")
@@ -136,9 +135,18 @@ if __name__ == '__main__':
     y = int(input())
     z = int(input())
     n = int(input())
+    L =[] # This list is intended to store the good combinations
+    
+    for num1 in range(x+1):
 
+        for num2 in range(y+1):
+
+            for num3 in range(z+1):
+                if num1 + num2 + num3 != n:
+                    L.append([num1,num2,num3])
+    print(L)
+                
 #I must verify that the sum of the three integers put in each list is different from n
-    print ([[num1,num2,num3] for num1 in range(0,x+1) for num2 in range(0,y+1) for num3 in range(0,z+1) if (num1 + num2 + num3 != n)])
 
 
 
@@ -178,7 +186,7 @@ if __name__ == '__main__':
         student_marks[name] = scores
     query_name = input()
 list = student_marks[query_name] #I create a list of the marks of the chosen student
-print("{0:.2f}".format(sum(list)/len(list))) #I use "{0:.2f}" to keep only two places
+print("{0:.2f}".format(sum(list)/len(list))) #I use "{0:.2f}" to keep two digits of precision
 
 
 # Exercise 14 - Map and lambda function
@@ -367,56 +375,49 @@ def wrap(string, max_width):
 
 
 #I begin with the upper part of the pattern :
-N, M = map(int,input().split()) #Enter N and M to initialize
-pat = []
+N, M = map(int,input().split())
+for k in range(1,N,2): 
+    print((k * ".|.").center(M, "-")) #This is the upper pattern. If I proceeded by incrementing i by 1 until N, I would get 4 unwanted.|.
+print("WELCOME".center(M,"-")) 
+for k in range(N-2,-1,-2): 
+    print((k * ".|.").center(M, "-"))  # This is the lower pattern
 
-for k in range(N//2):
-    pat.append(('.|.'*(2*k + 1)).center(M, '-')) #This is the upper pattern
-
-#I use the join function to gather the two parts of the pattern and the "WELCOME" message
-print('\n'.join(pat + ['WELCOME'.center(M, '-')] + pat[::-1]))
-#pat[::-1] enables to get the lower side : it simply reverses the upper side
 
 
 # Exercise 26 - String formatting
 
 def print_formatted(number):
     # your code goes here
-    w = len(str(bin(number)).replace('0b',''))
+    wid = len(str(bin(number)).replace('0b',''))
     f = ''
     for num in range(1, number+1):
         dec = str(num)
         octo = str(oct(num)).replace('0o','')
         hexa = str(hex(num)).replace('0x','').upper() #I replace the lowercase letters by their uppercase equivalent
         bina = str(bin(num)).replace('0b','')
-        print(dec.rjust(w), octo.rjust(w), hexa.rjust(w), bina.rjust(w), sep=' ') #By using the rjust method, I can print the 4 formats of the number with a space between them equivalent to the width equal to the number
+        print(dec.rjust(wid), end=' ')
+        print(octo.rjust(wid), end=' ')
+        print(hexa.rjust(wid), end=' ') 
+        print(bina.rjust(wid)) #By using the rjust method, I can print the 4 formats of the number with a space between them equivalent to the width equal to the number
     return()
 
 # Exercise 27 - Alphabet Rangoli
 
-import string
-
 def print_rangoli(size):
     # your code goes here
-    alpha = string.ascii_lowercase # I gather all the lowercase letters
-    Listrang = []
-
-    for k in range(size):
-        f = "-".join(alpha[k:size])
-        Listrang.append(f[::-1]+f[1:]) # I put in a list the letters to be later printed
-    width = len(Listrang[0])
-
-    for i in range(size-1, 0, -1):
-        print(Listrang[i].center(width, "-"))
-
-    for u in range(size):
-        print(Listrang[u].center(width, "-"))
+    lowercase = list('abcdefghijklmnopqrstuvwxyz') # I gather all the lowercase letters
+    low = lowercase[0:size]
+    for k in range(size-1, -size, -1):
+        numb = abs(k)
+        alph = low[size:numb:-1]+low[numb:size]
+        print ("--"*numb+ '-'.join(alph)+"--"*numb)
 
 
 # Exercise 28 - The minion game
 
 def minion_game(string):
     # your code goes here
+    
 #I create a string which contains all the vowels accepted
 
     allvowels = 'AEIOU'
@@ -621,11 +622,13 @@ print(sum(set1))
 n = int(input())
 a = input()
 l = list(map(int,a.split()))
-r = set(map(int,a.split())) # These are a set and a list. I will compare the total of times each item of the set
+r = set(map(int,a.split())) # I will compare the total of times each item of the set
 # appears in the list and conclude who the captain is
-count = 0
-
-print(((sum(r)*n)-(sum(l)))//(n-1))
+for item in r:
+    l.remove(item)
+    if item not in l: # If I cannot find the item, it means that it was found in l and removed
+        print(item)
+        break
 
 
 # Exercise 41 - Check subset
@@ -654,7 +657,10 @@ strictsuperset = []
 for _ in range(n): # I will not use the variable of the loop so I prefer to use _
     newset = set(map(str, input().split(' ')))
     strictsuperset.append(a.issuperset(newset))
-print(all(strictsuperset)) # I print the result : True or False
+if all(strictsuperset):
+    print("True")
+else:
+    print("False") # I print the result : True or False
 
 
 # Exercise 43 - Collections counter
@@ -671,7 +677,7 @@ for k in range(nb):
     a = list(map(int,input().split())) # I do not put split(" ") because split() gives us the same result
     if a[0] in l : # If the asked size is not available, we don't add the potential gain to the sum
         s += a[1]
-        l.remove(a[0]) # Each time an element of a is in the list of the sizes,
+        l.remove(a[0]) # Each time an element of "a" is in the list of the sizes,
         # I remove the size from the list. This is important in particular when the list of sizes contains the same size multiple times
 print(s) # I print the sum of all the gains
 
@@ -693,8 +699,8 @@ for i in range(m):
 for u in range(m):
 
     if d['B'][u] in d['A']:  # I check if each element of B is in A. If so, I recover the index in A of this element
-        L.append([i for i, x in enumerate(d['A']) if x == d['B'][
-            u]])  # I append to L the indexes of the elements of B (there could be multiple indexes so I use enumerate in a loop to get all of them
+        L.append([i for i, x in enumerate(d['A']) if x == d['B'][u]])  
+        # I append to L the indexes of the elements of B (there could be multiple indexes so I use enumerate in a loop to get all of them
 
     else:
         L.append([-1])  # If the value is not found in A, I cannot recover an index so I append to L the value -1
@@ -703,8 +709,7 @@ for j in range(len(L)):
 
     if L[j] != [-1]:
 
-        for k in range(len(L[
-                               j]) - 1):  # I print the indexes of each value of B in A on the same line but keep the last index for the end,
+        for k in range(len(L[j]) - 1):  # I print the indexes of each value of B in A on the same line but keep the last index for the end,
             # so that I can get stay on the same line for each range of indexes
             print(str(L[j][k] + 1), end=" ")
         print(str(L[j][len(L[j]) - 1] + 1))
@@ -748,7 +753,7 @@ for k in range(n) : # I could also have written for _ in range(n) as I do not us
     L = input().split()
     # I now want to make a new instance in GeneralStudentTuple : as a matter of fact, I want to add the marks from all the information like the id etc...
 
-    allmarks.append(int(GeneralStudentTuple._make(L).MARKS)) # You can see that I only recovered the marks and get them all together in a list
+    allmarks.append(int(GeneralStudentTuple._make(L).MARKS)) #  I only recovered the marks and get them all together in a list
 
 # The final step is to calculate the average : let us just sum all the items in the list which contains the marks and divide it by the length of the list
 
@@ -881,7 +886,7 @@ from datetime import datetime
 nbofdates = int(input())
 typeofdate = '%a %d %b %Y %H:%M:%S %z'
 #the format is defined to be introduced in the strptime function of the datetime library.
-# cf : https://www.tutorialspoint.com/python/time_strptime.htm to check it
+# cf : https://www.tutorialspoint.com/python/time_strptime.htm
 for _ in range(nbofdates):
     time1 = input()
     time2 = input()
@@ -1008,8 +1013,8 @@ L = []  # This list will contain the boolean which will point out if each input 
 c = compile(
     '^[-+]?'  # Matches + or - AT THE BEGINNING OF the string WITH JUST 0 or 1                           sign (just + or - or nothing)
     '[0-9]*'  # Matches any number
-    '\.'  # It excludes every character (in the string meaning) and must contain                     only one point
-    '[0-9]+$')  # There must be one or more digits at the end of the input (for                          instance, we cannot just write '+' without a single digit after it
+    '\.' 
+    '[0-9]+$')  # There must be one or more digits at the end of the input (for instance, we cannot just write '+' without a single digit after it
 
 for _ in range(n):
     L.append(bool(c.match(
@@ -1032,7 +1037,7 @@ import re
 
 Repet = re.search(r'([a-zA-Z0-9])\1', input().strip())
 # The hooks are used to contain the letters (uppercase and lowercase) and the numbers
-# the \1 helps us to only match when a character occurs multiple times
+# the \1 helps us to match only when a character occurs multiple times
 
 if Repet :
     print(Repet.group(1)) # I only pick up the first item of Repet because I want the first character to have been repeated on the set
@@ -1055,10 +1060,11 @@ Repet = re.findall(r'(?<=[' + cons + '])([' + vow + ']{2,})[' + cons + ']', stri
 # We use Ignorecase in order to consider an uppercase and a lowercase as the same, for instance
 
 if Repet:
-    print(*Repet, sep='\n') # I print all the matched substrings on different lines thanks to "*" and "\n".
+    for k in range(len(Repet)):
+        print(Repet[k]) # I print all the matched substrings on different lines thanks to "*" and "\n".
 else:
     print('-1')
-
+    
 
 # Exercise 61 - Re.start() and Re.end()
 
@@ -1067,7 +1073,7 @@ import re
 stringex = input()  # We enter the string we want to analyze
 pattern = input()  # This is the pattern we want to figure out if it is in the input string
 
-m = re.compile(r"""(?=("""+pattern+"""))""") # I use ?= to compile if and only if I find the pattern
+m = re.compile(r"(?=("+pattern+"))") # I use ?= to compile if and only if I find the pattern
 
 findpattern = m.search(stringex)  # I am looking for one or more occurrences of this pattern in stringex
 
@@ -1105,13 +1111,10 @@ for k in range(len(L)):
 
 regex_pattern = r"^M{,3}(CM|CD|C|D?C{,3})(XC|XL|X|L?X{,3})(IX|IV|I|V?I{,3})$"
 
-# The pattern should begin with the highest power of 10 possible (here, we can accept until 10^2 which corresponds to M)
+# The pattern should begin with the highest power of 10 possible (here, we can accept until 10^3 which corresponds to M)
 # I put the question mark to make every roman digit optional : I could simply have X without any other roman digit like I or C
 # The hooks are intended to specify the number of times the same roman character can occur. For instance, concerning M, we can just put it three times in a row as it equals 1000 and we can only go until 3999
 
-
-
-# I looked at wikipedia to get the whole roman numbers
 
 
 
@@ -1124,7 +1127,7 @@ n = int(input()) # This is the number of phone numbers to check and I do not nee
 pattern = r"^[789][0-9]{9}$"
 
 # I wrote this in order to verify that the number begins with 7, 8 or 9.
-# After having verified that the number begins with the right digit amongst the three ones, I must verify that there are 9 other digits to complete the number (10 digits in total)
+# After having verified that, I must verify that there are 9 other digits to complete the number (10 digits in total)
 
 for _ in range(n) :
     number = input()
@@ -1156,7 +1159,7 @@ for _ in range(n):
 import re
 
 n = int(input()) # Number of lines
-pattern = r'[\s:.(](#[0-9a-fA-F]{3}|#[0-9a-fA-F]{6})[\s;,)]' # I create a pattern enabling to only keep the colors with the valid colors
+pattern = r'[\s:.(](#[0-9a-fA-F]{3}|#[0-9a-fA-F]{6})[\s;,)]' 
 # {3,6} means that we want colors of 3 or 6 letters (between a to f, A to F ) or/and digits.
 # It MUST begin with a hashtag (thanks to "^")
 # [\s:.(] enables me to precise all the characters that can be put
@@ -1171,8 +1174,6 @@ for _ in range(n):
         for colors in goodcolors:
             print(colors) # I directly print all the correct colors
 
-# I could have printed all the colors thanks to the command print(*goodcolors) but I
-# prefer to have a more detailed program
 
 
 
@@ -1197,8 +1198,7 @@ class MyHTMLParser(HTMLParser):
     def handle_startendtag(self, tag, attrs):
         print("Empty :", tag)
         for k in range(len(attrs)):
-            print('->', attrs[k][0], ">", attrs[k][
-                1])  # I recover the name AND the value                                                         from attrs
+            print('->', attrs[k][0], ">", attrs[k][1])  # I recover the name AND the value                                                         from attrs
 
 
 n = int(input())  # Number of lines
@@ -1395,7 +1395,7 @@ def wrapper(f):
         sortednumbers = sorted(numbers) # I can now sort all the numbers before getting them under the right format
 
         for k in range (len(sortednumbers)):
-            print("+91",sortednumbers[k][0:5],sortednumbers[k][5:]) # I can now print the number with the prefix and the right number, divided into two parts at its middle
+            print("+91",sortednumbers[k][:5],sortednumbers[k][5:]) # I can now print the number with the prefix and the right number, divided into two parts at its middle
     return fun
 
 
