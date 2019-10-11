@@ -168,10 +168,19 @@ print (max(newlist))
 
 # Exercise 12 - Nested lists
 
-marksarray = [[input(), float(input())] for _ in range(input())]
-secondelement = sorted(set([k for i,k in marksarray]))[1] # I get the second element of the set, which is the second lowest grade !
+n = int(input())
+marksarray = []
+sco = [] # I will store all the scores inside this list
+for _ in range(n):
+    student = input()
+    score = float(input())
+    marksarray.append([student, score])
+    sco.append(score)
+secondelement = sorted(set(sco))[1] # I get the second element of the set, which is the second lowest grade 
 
-print ('\n'.join(sorted([i for i,k in arr if k == secondelement])))
+for student,mark in sorted(marksarray) :
+    if mark == secondelement :
+        print(student)
 
 
 
@@ -187,7 +196,7 @@ if __name__ == '__main__':
     query_name = input()
 list = student_marks[query_name] #I create a list of the marks of the chosen student
 print("{0:.2f}".format(sum(list)/len(list))) #I use "{0:.2f}" to keep two digits of precision
-
+# I thought about print(round(sum/len),2) but it does not work here
 
 # Exercise 14 - Map and lambda function
 
