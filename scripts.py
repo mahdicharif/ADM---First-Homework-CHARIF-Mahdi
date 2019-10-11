@@ -2,18 +2,13 @@
 import numpy as np
 
 
-# PROBLEM 1
+# ===== PROBLEM1 =====
 
-
-
-
-# Exercise 1 - Say "Hello, World!" Python
+# Exercise 1 - Introduction - Say "Hello, World!" With Python
 
 print ("Hello, World!")
 
-
-
-# Exercise 2 - Python If - Else
+# Exercise 2 - Introduction - Python If-Else
 
 #!/bin/python
 
@@ -38,8 +33,7 @@ elif (n%2==0 and n>=6 and n<=20):
 elif (n%2==0 and n>20):
     print("Not Weird")
 
-
-# Exercise 3 - Arithmetic operators
+# Exercise 3 - Introduction - Arithmetic Operators
 
 if __name__ == '__main__':
     a = int(input())
@@ -49,8 +43,19 @@ print(a+b)
 print(a-b)
 print(a*b)
 
+# Exercise 4 - Introduction - Python: Division
 
-# Exercise 4 - Loops
+from __future__ import division
+
+if __name__ == '__main__':
+    a = int(input())
+    b = int(input())
+
+print(a//b)
+print(a/b)
+
+
+# Exercise 5 - Introduction - Loops
 
 if __name__ == '__main__':
     n = int(input())
@@ -62,8 +67,7 @@ if n>=1 and n<=20:
 #I have put a condition on n to know whether the number is contained between 1 and 20. If so, we print the square of each number until n-1.
 
 
-
-# Exercise 5 - Write a function
+# Exercise 6 - Introduction - Write a function
 
 def is_leap(year):
     leap = False
@@ -77,7 +81,7 @@ def is_leap(year):
         leap = True
     return leap
 
-# Exercise 6 - Print function
+# Exercise 7 - Introduction - Print Function
 
 from __future__ import print_function
 
@@ -88,70 +92,28 @@ s=0
 for nb in range(1, n+1):
     print (nb, end="")
 
-
-
-# Exercise 7 - Capitalize!
-
-
-def solve(s):
-    if len(s)>0 and len(s)<1000:
-        l = s.split(" ")
-        final = l[0].capitalize()
-        #I put the first world, with a brand new capital letter, as the first letter of my new string. If there is no other word found, we don't enter in the loop.
-        if len(l)>1:
-            for i in range(1,len(l)):
-                final = final + " " + l[i].capitalize()
-    return(final)
-
-
-# Exercise 8 - Python : division
-
-from __future__ import division
-
-if __name__ == '__main__':
-    a = int(input())
-    b = int(input())
-
-print(a//b)
-print(a/b)
-
-
-
-# Exercise 9 - Print Function
-
-if __name__ == '__main__':
-    n = int(input())
-
-s=0
-for nb in range(1, n+1):
-    print (nb, end="")
-
-
-
-# Exercise 10 - List comprehension
+# Exercise 8 - Basic data types - List Comprehensions
 
 if __name__ == '__main__':
     x = int(input())
     y = int(input())
     z = int(input())
     n = int(input())
-    L =[] # This list is intended to store the good combinations
-    
-    for num1 in range(x+1):
+    L = []  # This list is intended to store the good combinations
 
-        for num2 in range(y+1):
+    for num1 in range(x + 1):
 
-            for num3 in range(z+1):
+        for num2 in range(y + 1):
+
+            for num3 in range(z + 1):
                 if num1 + num2 + num3 != n:
-                    L.append([num1,num2,num3])
+                    L.append([num1, num2, num3])
     print(L)
-                
-#I must verify that the sum of the three integers put in each list is different from n
+
+# I must verify that the sum of the three integers put in each list is different from n
 
 
-
-
-# Exercise 11 - Find the runner-up score
+# Exercise 9 - Basic data types - Find the Runner-Up Score!
 
 if __name__ == '__main__':
     n = int(input())
@@ -165,8 +127,7 @@ while max(newlist) == z:
 print (max(newlist))
 
 
-
-# Exercise 12 - Nested lists
+# Exercise 10 - Basic data types - Nested Lists
 
 n = int(input())
 marksarray = []
@@ -176,15 +137,13 @@ for _ in range(n):
     score = float(input())
     marksarray.append([student, score])
     sco.append(score)
-secondelement = sorted(set(sco))[1] # I get the second element of the set, which is the second lowest grade 
+secondelement = sorted(set(sco))[1] # I get the second element of the set, which is the second lowest grade
 
 for student,mark in sorted(marksarray) :
     if mark == secondelement :
         print(student)
 
-
-
-# Exercise 13 - Finding the percentage
+# Exercise 11 - Basic data types - Finding the percentage
 
 if __name__ == '__main__':
     n = int(input())
@@ -198,22 +157,8 @@ list = student_marks[query_name] #I create a list of the marks of the chosen stu
 print("{0:.2f}".format(sum(list)/len(list))) #I use "{0:.2f}" to keep two digits of precision
 # I thought about print(round(sum/len),2) but it does not work here
 
-# Exercise 14 - Map and lambda function
+# Exercise 12 - Basic data types - Lists
 
-cube = lambda x : x**3 # complete the lambda function
-
-def fibonacci(n):
-    # return a list of fibonacci numbers
-    L=[0,1] #I initialize the list with the first two fibonacci numbers
-    for k in range(2,n):
-        L.append(L[k-2]+L[k-1]) #I use the usual formula given by the recursive form
-    return(L[0:n])
-if __name__ == '__main__':
-    n = int(input())
-    print(list(map(cube, fibonacci(n))))
-
-
-# Exercise 15 - Lists
 
 n = int(input())
 l = []
@@ -236,9 +181,7 @@ for _ in range(n):
     elif cmd == 'sort':
         l.sort()
 
-
-
-# Exercise 16 - Tuples
+# Exercise 13 - Basic data types - Tuples
 
 if __name__ == '__main__':
     n = int(input())
@@ -247,9 +190,7 @@ tup = tuple(integer_list)
 print(hash(tup))
 #The last step is the one which converts the tuple I created to a hash type
 
-
-
-# Exercise 17 - sWAP cASE
+# Exercise 14 - Strings - sWAP cASE
 
 def swap_case(s):
     final = ''
@@ -262,20 +203,20 @@ def swap_case(s):
             final+=let
     return(final)
 
-# Exercise 18 - String split and join
+
+# Exercise 15 - Strings - String Split and Join
 
 def split_and_join(line):
     # write your code here
     a = line.split(" ") #We separe the words or other characters contained in line
     return("-".join(a))
 
-
-# Exercise 19 - What's your name
+# Exercise 16 - Strings - What's Your Name?
 
 def print_full_name(a, b):
     print("Hello " + a + " " + b +"! " + "You just delved into python.")
 
-# Exercise 20 - Mutations
+# Exercise 17 - Strings - Mutations
 
 def mutate_string(string, position, character):
     l=[]
@@ -287,8 +228,7 @@ def mutate_string(string, position, character):
         final += l[i]
     return(final)
 
-
-# Exercise 21 - Find a string
+# Exercise 18 - Strings - Find a string
 
 def count_substring(string, sub_string):
     c1=0
@@ -305,9 +245,7 @@ def count_substring(string, sub_string):
                 c2+=1 #I add one to the total of times the sub string appears
     return(c2)
 
-
-
-# Exercise 22 - String validator
+# Exercise 19 - Strings - String Validators
 
 if __name__ == '__main__':
     s = input()
@@ -333,10 +271,8 @@ print(digit)
 print(lower)
 print(upper)
 
+# Exercise 20 - Strings - Text Alignment
 
-# Exercise 23 - Text alignment
-
-#Replace all ______ with rjust, ljust or center.
 
 thickness = int(input()) #This must be an odd number
 c = 'H'
@@ -361,9 +297,7 @@ for i in range(thickness+1):
 for i in range(thickness):
     print(((c*(thickness-i-1)).rjust(thickness)+c+(c*(thickness-i-1)).ljust(thickness)).rjust(thickness*6))
 
-
-
-# Exercise 24 - Text wrap
+# Exercise 21 - Strings - Text Wrap
 
 
 def wrap(string, max_width):
@@ -378,22 +312,16 @@ def wrap(string, max_width):
         f+=L[i]+"\n" #I get back the items of the list, which contains the new strings with a length equal to max_width. I add "\n" to go back to the line
     return(f)
 
+# Exercise 22 - Strings - Designer Door Mat
 
-
-# Exercise 25  - Designer door mat
-
-
-#I begin with the upper part of the pattern :
 N, M = map(int,input().split())
-for k in range(1,N,2): 
+for k in range(1,N,2):
     print((k * ".|.").center(M, "-")) #This is the upper pattern. If I proceeded by incrementing i by 1 until N, I would get 4 unwanted.|.
-print("WELCOME".center(M,"-")) 
-for k in range(N-2,-1,-2): 
+print("WELCOME".center(M,"-"))
+for k in range(N-2,-1,-2):
     print((k * ".|.").center(M, "-"))  # This is the lower pattern
 
-
-
-# Exercise 26 - String formatting
+# Exercise 23 - Strings - String Formatting
 
 def print_formatted(number):
     # your code goes here
@@ -406,11 +334,11 @@ def print_formatted(number):
         bina = str(bin(num)).replace('0b','')
         print(dec.rjust(wid), end=' ')
         print(octo.rjust(wid), end=' ')
-        print(hexa.rjust(wid), end=' ') 
+        print(hexa.rjust(wid), end=' ')
         print(bina.rjust(wid)) #By using the rjust method, I can print the 4 formats of the number with a space between them equivalent to the width equal to the number
     return()
 
-# Exercise 27 - Alphabet Rangoli
+# Exercise 24 - Strings - Alphabet Rangoli
 
 def print_rangoli(size):
     # your code goes here
@@ -421,13 +349,24 @@ def print_rangoli(size):
         alph = low[size:numb:-1]+low[numb:size]
         print ("--"*numb+ '-'.join(alph)+"--"*numb)
 
+# Exercise 25 - Strings - Capitalize!
 
-# Exercise 28 - The minion game
+def solve(s):
+    if len(s)>0 and len(s)<1000:
+        l = s.split(" ")
+        final = l[0].capitalize()
+        #I put the first world, with a brand new capital letter, as the first letter of my new string. If there is no other word found, we don't enter in the loop.
+        if len(l)>1:
+            for i in range(1,len(l)):
+                final = final + " " + l[i].capitalize()
+    return(final)
+
+# Exercise 26 - Strings - The Minion Game
 
 def minion_game(string):
     # your code goes here
-    
-#I create a string which contains all the vowels accepted
+
+    # I create a string which contains all the vowels accepted
 
     allvowels = 'AEIOU'
     scores = 0
@@ -435,24 +374,22 @@ def minion_game(string):
 
     for i in range(len(string)):
         if string[i] in allvowels:
-            scorek += (len(string)-i)
+            scorek += (len(string) - i)
         else:
-            scores += (len(string)-i)
+            scores += (len(string) - i)
 
-    if (scorek > scores) :
-        print ("Kevin", scorek)
-    elif (scorek < scores) :
-        print ("Stuart", scores)
+    if (scorek > scores):
+        print("Kevin", scorek)
+    elif (scorek < scores):
+        print("Stuart", scores)
     else:
-        print ("Draw")
-    return()
+        print("Draw")
+    return ()
 
-
-
-# Exercise 29 - Merge the tools !
+# Exercise 27 - Strings - Merge the Tools!
 
 def merge_the_tools(string, k):
-# your code goes here
+
     while string:
         s = string[0:k]
         f = '' # We create a new string to add in it a block of letters
@@ -462,9 +399,7 @@ def merge_the_tools(string, k):
         print(f) # We print the obtained block of characters and go back to the loop
         string = string[k:]
 
-
-
-# Exercise 30 - Introduction to sets
+# Exercise 28 - Sets - Introduction to Sets
 
 def average(array):
     # your code goes here
@@ -474,8 +409,20 @@ def average(array):
             L.append(k)
     return(sum(L)/len(L))
 
+# Exercise 29 - Sets - No Idea!
 
-# Exercise 31 - Symmetric difference
+n, m = input().split()
+
+array = input().split()
+
+A = set(input().split())
+B = set(input().split()) # I insert the two sets of m integers
+
+final = sum([(number in A) - (number in B) for number in array])
+
+print(final)
+
+# Exercise 30 - Sets - Symmetric Difference
 
 M = int(input())
 i1 = input()
@@ -498,26 +445,7 @@ final = sorted(L)
 for u in range(len(L)) :
     print(final[u])
 
-
-# Exercise 32 - No idea !
-
-# Enter your code here. Read input from STDIN. Print output to STDOUT
-
-n, m = input().split()
-
-array = input().split()
-
-A = set(input().split())
-B = set(input().split()) # I insert the two sets of m integers
-
-final = sum([(number in A) - (number in B) for number in array])
-
-print(final)
-
-
-# Exercise 33 - Set .add()
-
-# Enter your code here. Read input from STDIN. Print output to STDOUT
+# Exercise 31 - Sets - Set .add()
 
 n = int(input()) #Number of countries input
 L = []
@@ -531,8 +459,7 @@ for x in L :
 
 print(len(L1))
 
-
-# Exercise 34 - Set .discard(), .remove() & .pop()
+# Exercise 32 - Sets - Set .discard(), .remove() & .pop()
 
 n = int(input())
 s = set(map(int, input().split())) #This is the set
@@ -551,23 +478,7 @@ for _ in range(numb):
         s.pop()
 print(sum(s))
 
-
-
-# Exercise 35 - Set intersection
-
-# Enter your code here. Read input from STDIN. Print output to STDOUT
-
-fr = int(input())
-lfr = set(map(int,input().split()))
-en = int(input())
-lengl = set(map(int,input().split())) # I create the two sets of students
-
-print(len(lfr.intersection(lengl))) # I print the number of similar elements
-
-
-# Exercise 36 - Set union
-
-# Enter your code here. Read input from STDIN. Print output to STDOUT
+# Exercise 33 - Sets - Set .union() Operation
 
 fr = int(input())
 lfr = set(map(int,input().split()))
@@ -576,10 +487,17 @@ lengl = set(map(int,input().split())) # I create the two sets of students
 
 print(len(lfr.union(lengl)))
 
+# Exercise 34 - Sets - Set .intersection() Operation
 
-# Exercise 37 - Set difference
 
-# Enter your code here. Read input from STDIN. Print output to STDOUT
+fr = int(input())
+lfr = set(map(int,input().split()))
+en = int(input())
+lengl = set(map(int,input().split())) # I create the two sets of students
+
+print(len(lfr.intersection(lengl))) # I print the number of similar elements
+
+# Exercise 35 - Sets - Set .difference() Operation
 
 fr = int(input())
 lfr = set(map(int,input().split()))
@@ -588,10 +506,7 @@ lengl = set(map(int,input().split())) # I create the two sets of students
 
 print(len(lfr.difference(lengl)))
 
-
-# Exercise 38 - Set symmetric difference
-
-# Enter your code here. Read input from STDIN. Print output to STDOUT
+# Exercise 36 - Sets - Set .symmetric_difference() Operation
 
 fr = int(input())
 lfr = set(map(int,input().split()))
@@ -600,33 +515,28 @@ lengl = set(map(int,input().split())) # I create the two sets of students
 
 print(len(lfr.symmetric_difference(lengl)))
 
+# Exercise 37 - Sets - Set Mutations
 
-# Exercise 39 - Set mutations
-
-# Enter your code here. Read input from STDIN. Print output to STDOUT
-
-_ = int(input())
+nb = int(input()) # I will not need this variable
 set1 = set(map(int, input().split())) # This is the set we consider as an input
 n = int(input())
 
 for _ in range(n): # I am using _ because I do not need to use a variable to be iterated in this loop
-    cmd, _ = input().split()
+    ope, lennewset = input().split() # ope is the new of the operation
     set2 = set(map(int, input().split()))
-    if(cmd == "intersection_update"): # I consider the 4 different situations : if we write intersection_update, update, symmetric_difference_update or difference_update)
+    if(ope == "intersection_update"): # I consider the 4 different situations : if we write intersection_update, update, symmetric_difference_update or difference_update)
         set1.intersection_update(set2)
-    elif(cmd == "update"):
+    elif(ope == "update"):
         set1.update(set2)
-    elif(cmd == "symmetric_difference_update"):
+    elif(ope == "symmetric_difference_update"):
         set1.symmetric_difference_update(set2)
-    elif(cmd == "difference_update"):
+    elif(ope == "difference_update"):
         set1.difference_update(set2)
 
 print(sum(set1))
 
+# Exercise 38 - Sets - The Captain's Room
 
-# Exercise 40 - The captain's room
-
-# Enter your code here. Read input from STDIN. Print output to STDOUT
 
 n = int(input())
 a = input()
@@ -635,14 +545,11 @@ r = set(map(int,a.split())) # I will compare the total of times each item of the
 # appears in the list and conclude who the captain is
 for item in r:
     l.remove(item)
-    if item not in l: # If I cannot find the item, it means that it was found in l and removed
+    if item not in l: # If I cannot find the item, it means that it was found in l and removed it
         print(item)
         break
 
-
-# Exercise 41 - Check subset
-
-# Enter your code here. Read input from STDIN. Print output to STDOUT
+# Exercise 39 - Sets - Check Subset
 
 n = int(input()) #This is the number of tests
 
@@ -653,28 +560,20 @@ for _ in range(n):
     B = set(input().split()) # Creation of set B
     print(A.issubset(B)) # This simple line prints out a boolean which will be true if A is actually a subset of B
 
+# Exercise 40 - Sets - Check Strict Superset
 
-# Exercise 42 - Check strict superset
-
-# Enter your code here. Read input from STDIN. Print output to STDOUT
-
-
-#I use the all method to check if all the items of strictsuperset
 a = set(map(str, input().split(' ')))
 n = int(input())
 strictsuperset = []
 for _ in range(n): # I will not use the variable of the loop so I prefer to use _
     newset = set(map(str, input().split(' ')))
-    strictsuperset.append(a.issuperset(newset))
-if all(strictsuperset):
+    strictsuperset.append(a.issuperset(newset)) # I use the issuperset function to check if newset is a super set
+if all(strictsuperset): # I check if ALL THE NEW SETS all super sets
     print("True")
 else:
     print("False") # I print the result : True or False
 
-
-# Exercise 43 - Collections counter
-
-# Enter your code here. Read input from STDIN. Print output to STDOUT
+# Exercise 41 - Collections - collections.Counter()
 
 n = int(input())
 l = list(map(int,input().split())) # These two first lines are the number of shoe sizes and the list of the sizes
@@ -691,7 +590,8 @@ for k in range(nb):
 print(s) # I print the sum of all the gains
 
 
-# Exercise 44 - Defaultdict tutorial
+# Exercise 42 - Collections - DefaultDict Tutorial
+
 
 from collections import defaultdict
 
@@ -708,7 +608,7 @@ for i in range(m):
 for u in range(m):
 
     if d['B'][u] in d['A']:  # I check if each element of B is in A. If so, I recover the index in A of this element
-        L.append([i for i, x in enumerate(d['A']) if x == d['B'][u]])  
+        L.append([i for i, x in enumerate(d['A']) if x == d['B'][u]])
         # I append to L the indexes of the elements of B (there could be multiple indexes so I use enumerate in a loop to get all of them
 
     else:
@@ -727,26 +627,7 @@ for j in range(len(L)):
         print(str(L[j][0]))  # If a value of B is not in A, I print -1
 
 
-# Exercise 45 - Exceptions
-
-# Enter your code here. Read input from STDIN. Print output to STDOUT
-
-n = int(input()) # We enter the number of operations we will do
-
-for k in range(n):
-    a, b = list(input().split())
-    try:
-        print (int(a)//int(b)) # If none of the two exceptions are met, I print the integer division of a and b
-    except ValueError as Error : # If a is divided by 0, we do not do the division but print an error
-        print ("Error Code:",Error)
-    except ZeroDivisionError as Error : # If there is an error on the type of the variables (not integers), we print an error
-        print ("Error Code:", Error)
-
-
-
-# Exercise 46 - Collections namedtuple
-
-# Enter your code here. Read input from STDIN. Print output to STDOUT
+# Exercise 43 - Collections - Collections.namedtuple()
 
 # In order to keep my work understandable and readable, I prefer to write this problem in more than 4 lines
 
@@ -766,12 +647,12 @@ for k in range(n) : # I could also have written for _ in range(n) as I do not us
 
 # The final step is to calculate the average : let us just sum all the items in the list which contains the marks and divide it by the length of the list
 
-print(round(sum(allmarks) / len(allmarks), 2))
+print(round(sum(allmarks) / len(allmarks), 2)) # I can keep two decimal digits thanks to the round function
 
 
-# Exercise 47 - Collections orderedDict
 
-# Enter your code here. Read input from STDIN. Print output to STDOUT
+# Exercise 44 - Collections - Collections.OrderedDict()
+
 from collections import OrderedDict
 
 fooddict = OrderedDict()  # I first create my ordered dictionary
@@ -795,7 +676,8 @@ for product in fooddict:
         print(product + " " + str(fooddict[product])) # I print the name of the product and the money it has brought
 
 
-# Exercise 48 - Word order
+
+# Exercise 45 - Collections - Word Order
 
 from collections import OrderedDict
 
@@ -815,9 +697,9 @@ for k in dictwords :
 # (in the order in which they had been introduced, that is why I used an ordered dictionary).
 
 
-# Exercise 49  - Collections deque
+# Exercise 46 - Collections - Collections.deque()
 
-# Enter your code here. Read input from STDIN. Print output to STDOUT
+
 
 from collections import deque
 
@@ -839,7 +721,30 @@ for k in range(len(d)): # I print each element of d, which is a deque. It will g
     print(str(d[k]) + " ", end='')
 
 
-# Exercise 50 - Piling up!
+# Exercise 47 - Collections - Company Logo
+
+
+from collections import Counter # I will use this subclass : https://docs.python.org/2/library/collections.html
+
+if __name__ == '__main__':
+    s = input()
+
+listcounter = Counter(s).items() # This dictionary contains all the characters. An important point is that
+
+sortedlistcounter = sorted(listcounter, key=lambda x: (-x[1], x[0])) # The -x[1] enables me to sort by decreasing numbers
+# The second key of this sorting enables me to sort the characters in an alphabetical order if they have the same number of occurrences
+
+if len(sortedlistcounter)>=3: # I distinguish the cases where there are less than three characters to print from the other cases
+    for k in range(3):
+        print(sortedlistcounter[k][0] + " " + str(sortedlistcounter[k][1]))
+else :
+    for i in range(len(sortedlistcounter)):
+        print(sortedlistcounter[i][0] + " " + str(sortedlistcounter[i][1])) # Less than 3 characters and their occurrences will be printed out
+
+
+
+# Exercise 48 - Collections - Piling Up!
+
 
 n = int(input())
 
@@ -868,47 +773,8 @@ for _ in range(n):
     # If Lright and Lleft were originally sorted, it means that we can compile the cubes.
 
 
-# Exercise 51 - Company logo
+# Exercise 49 - Date time - Calendar Module
 
-from collections import Counter # I will use this subclass : https://docs.python.org/2/library/collections.html
-
-if __name__ == '__main__':
-    s = input()
-
-listcounter = Counter(s).items() # This dictionary contains all the characters. An important point is that
-
-sortedlistcounter = sorted(listcounter, key=lambda x: (-x[1], x[0])) # The -x[1] enables me to sort by decreasing numbers
-# The second key of this sorting enables me to sort the characters in an alphabetical order if they have the same number of occurrences
-
-if len(sortedlistcounter)>=3: # I distinguish the cases where there are less than three characters to print from the other cases
-    for k in range(3):
-        print(sortedlistcounter[k][0] + " " + str(sortedlistcounter[k][1]))
-else :
-    for i in range(len(sortedlistcounter)):
-        print(sortedlistcounter[i][0] + " " + str(sortedlistcounter[i][1])) # Less than 3 characters and their occurrences will be printed out
-
-
-# Exercise 52 - Time delta
-
-from datetime import datetime
-
-nbofdates = int(input())
-typeofdate = '%a %d %b %Y %H:%M:%S %z'
-#the format is defined to be introduced in the strptime function of the datetime library.
-# cf : https://www.tutorialspoint.com/python/time_strptime.htm
-for _ in range(nbofdates):
-    time1 = input()
-    time2 = input()
-    difference = datetime.strptime(time1, typeofdate) - datetime.strptime(time2, typeofdate)
-    print(int(abs(difference.total_seconds())))
-    # total_seconds enables me to get the difference between the two dates in seconds
-#We use the absolute function to avoid having a negative difference between the two
-# times we consider
-
-
-# Exercise 53 - Calendar module
-
-# Enter your code here. Read input from STDIN. Print output to STDOUT
 import datetime
 
 
@@ -923,7 +789,40 @@ def dayoftheweek(date):
 
 print(dayoftheweek(input()))
 
-# Exercise 54 - Zipped
+
+# Exercise 50 - Date time - Time Delta
+
+
+from datetime import datetime
+
+nbofdates = int(input())
+typeofdate = '%a %d %b %Y %H:%M:%S %z'
+#the format is defined to be introduced in the strptime function of the datetime library.
+# cf : https://www.tutorialspoint.com/python/time_strptime.htm
+for _ in range(nbofdates):
+    time1 = input()
+    time2 = input()
+    difference = datetime.strptime(time1, typeofdate) - datetime.strptime(time2, typeofdate)
+    print(int(abs(difference.total_seconds())))
+    # total_seconds enables me to get the difference between the two dates in seconds
+#We use the absolute function to avoid having a negative difference between the two times we consider
+
+
+# Exercise 51 - Exceptions -
+
+n = int(input()) # We enter the number of operations we will do
+
+for k in range(n):
+    a, b = list(input().split())
+    try:
+        print (int(a)//int(b)) # If none of the two exceptions are met, I print the integer division of a and b
+    except ValueError as Error : # If a is divided by 0, we do not do the division but print an error
+        print ("Error Code:",Error)
+    except ZeroDivisionError as Error : # If there is an error on the type of the variables (not integers), we print an error
+        print ("Error Code:", Error)
+
+
+# Exercise 52 - Built-ins - Zipped!
 
 import itertools as it
 
@@ -941,35 +840,7 @@ for i in range(len(marks)):
     #the number of marks he got
 
 
-# Exercise 55 - ginortS
-
-# Enter your code here. Read input from STDIN. Print output to STDOUT
-
-s = list(input())
-# Each of the following lists are intended to store the characters of a precise type :
-up = [] # Uppercase letters
-low = [] # Lowercase letters
-odd = [] # Odd numbers
-eve = [] # Even numbers
-
-
-for item in s: # I append to all the lists the values or characters that go within.
-    if item.isupper():
-        up.append(item)
-    if item.islower():
-        low.append(item)
-    if item.isdigit() : # Since I cannot use int(item) in the condition, I prefer to directly use a built-in function
-        if int(item)%2!=0 :
-            odd.append(int(item))
-        else :
-            eve.append(int(item))
-final = sorted(low) + sorted(up) + sorted(odd) + sorted(eve) # I can now concatenate all these lists after having sorted them
-
-for k in range(len(final)):
-    print(str(final[k]),end='') # I use the parameter 'end' in order to print all the sorted characters next to each others
-
-
-# Exercise 56 - Athlete sort
+# Exercise 53 - Built-ins - Athlete Sort
 
 #!/bin/python3
 
@@ -1008,9 +879,49 @@ for k in range(n): # Lastly, I want to print all the characteristics of an athle
         print(sortedlist[k][0])
 
 
-# Exercise 57 - Detect floating point number
+# Exercise 54 - Built-ins - Ginorts
 
-# Enter your code here. Read input from STDIN. Print output to STDOUT
+s = list(input())
+# Each of the following lists are intended to store the characters of a precise type :
+up = [] # Uppercase letters
+low = [] # Lowercase letters
+odd = [] # Odd numbers
+eve = [] # Even numbers
+
+
+for item in s: # I append to all the lists the values or characters that go within.
+    if item.isupper():
+        up.append(item)
+    if item.islower():
+        low.append(item)
+    if item.isdigit() : # Since I cannot use int(item) in the condition, I prefer to directly use a built-in function
+        if int(item)%2!=0 :
+            odd.append(int(item))
+        else :
+            eve.append(int(item))
+final = sorted(low) + sorted(up) + sorted(odd) + sorted(eve) # I can now concatenate all these lists after having sorted them
+
+for k in range(len(final)):
+    print(str(final[k]),end='') # I use the parameter 'end' in order to print all the sorted characters next to each others
+
+
+
+# Exercise 55 - Map and lambda function
+
+cube = lambda x : x**3 # complete the lambda function
+
+def fibonacci(n):
+    # return a list of fibonacci numbers
+    L=[0,1] #I initialize the list with the first two fibonacci numbers
+    for k in range(2,n):
+        L.append(L[k-2]+L[k-1]) #I use the usual formula given by the recursive form
+    return(L[0:n])
+if __name__ == '__main__':
+    n = int(input())
+    print(list(map(cube, fibonacci(n))))
+
+
+# Exercise 56 - Regex - Detect Floating Point Number
 
 from re import match, compile  # As we are in the regex part, I will use its tools.
 
@@ -1034,7 +945,8 @@ for _ in range(n):
 for k in range(len(L)):
     print(L[k])  # I print the booleans that tell whether or not the input respects the                     conditions
 
-# Exercise 58 - Re.split()
+
+# Exercise 57 - Regex - Re.split()
 
 regex_pattern = r"[.,]"	# Do not delete 'r'.
 # I specify . and , as items to be deleted from the output
@@ -1054,7 +966,22 @@ else :
     print(-1)
 
 
-# Exercise 60 - Re.findall() and Re.finditer()
+# Exercise 58 - Regex - Group(), Groups() & Groupdict()
+
+import re
+
+Repet = re.search(r'([a-zA-Z0-9])\1', input().strip())
+# The hooks are used to contain the letters (uppercase and lowercase) and the numbers
+# the \1 helps us to match only when a character occurs multiple times
+
+if Repet :
+    print(Repet.group(1)) # I only pick up the first item of Repet because I want the first character to have been repeated on the set
+else :
+    print(-1)
+
+
+
+# Exercise 59 - Regex - Re.findall() & Re.finditer()
 
 import re
 vow = 'aeiou'
@@ -1073,9 +1000,9 @@ if Repet:
         print(Repet[k]) # I print all the matched substrings on different lines thanks to "*" and "\n".
 else:
     print('-1')
-    
 
-# Exercise 61 - Re.start() and Re.end()
+
+# Exercise 60 - Regex - Re.start() & Re.end()
 
 import re
 
@@ -1096,7 +1023,8 @@ else:
     print((-1, -1))
 
 
-# Exercise 62 - Regex substitution
+
+# Exercise 61 - Regex - Regex Substitution
 
 import re
 
@@ -1116,18 +1044,17 @@ for k in range(len(L)):
     print(L[k])  # I print all the modified lines
 
 
-# Exercise 63 - Validating Roman Numerals
+# Exercise 62 - Regex - Validating Roman Numerals
+
 
 regex_pattern = r"^M{,3}(CM|CD|C|D?C{,3})(XC|XL|X|L?X{,3})(IX|IV|I|V?I{,3})$"
 
 # The pattern should begin with the highest power of 10 possible (here, we can accept until 10^3 which corresponds to M)
 # I put the question mark to make every roman digit optional : I could simply have X without any other roman digit like I or C
-# The hooks are intended to specify the number of times the same roman character can occur. For instance, concerning M, we can just put it three times in a row as it equals 1000 and we can only go until 3999
+# The hooks are intended to specify the number of times the same roman character can occur. For instance, concerning M, we can just put
 
 
-
-
-# Exercise 64 - Validating phone numbers
+# Exercise 63 - Regex - Validating phone numbers
 
 
 import re
@@ -1146,7 +1073,8 @@ for _ in range(n) :
         print("NO")
 
 
-# Exercise 65 - Validating and parsing Email Addresses
+# Exercise 64 - Regex - Validating and Parsing Email Addresses
+
 
 import email.utils
 import re
@@ -1163,12 +1091,12 @@ for _ in range(n):
         print(userandmail)
 
 
-# Exercise 66 - Hex Color Code
+# Exercise 65 - Regex - Hex Color Code
 
 import re
 
 n = int(input()) # Number of lines
-pattern = r'[\s:.(](#[0-9a-fA-F]{3}|#[0-9a-fA-F]{6})[\s;,)]' 
+pattern = r'[\s:.(](#[0-9a-fA-F]{3}|#[0-9a-fA-F]{6})[\s;,)]'
 # {3,6} means that we want colors of 3 or 6 letters (between a to f, A to F ) or/and digits.
 # It MUST begin with a hashtag (thanks to "^")
 # [\s:.(] enables me to precise all the characters that can be put
@@ -1184,9 +1112,7 @@ for _ in range(n):
             print(colors) # I directly print all the correct colors
 
 
-
-
-# Exercise 67 - HTML Parser - Part 1
+# Exercise 66 - Regex - HTML Parser - Part 1
 
 from html.parser import HTMLParser
 
@@ -1216,7 +1142,8 @@ parser = MyHTMLParser()
 for _ in range(n):
     parser.feed(input())
 
-# Exercise 68 - HTML Parser Part 2
+
+# Exercise 67 - Regex - HTML Parser - Part 2
 
 from html.parser import HTMLParser
 
@@ -1248,9 +1175,9 @@ parser = MyHTMLParser()
 parser.feed(html)
 parser.close()
 
-# Exercise 69  - Detect HTML Tags, Attributes and Attribute Values
 
 
+# Exercise 68 - Regex - Detect HTML Tags, Attributes and Attribute Values
 
 from html.parser import HTMLParser
 
@@ -1278,10 +1205,7 @@ for _ in range(n):
     parser.feed(input())
 
 
-
-
-# Exercise 70 - Validating UID
-
+# Exercise 69 - Regex - Validating UID
 
 import re
 
@@ -1300,9 +1224,8 @@ for k in range(T):
         print("Invalid")
 
 
-# Exercise 71 - Validating Credit card Numbers
+# Exercise 70 - Regex - Validating Credit Card Numbers
 
-# Enter your code here. Read input from STDIN. Print output to STDOUT
 import re
 
 
@@ -1324,7 +1247,7 @@ for _ in range(n):
 
 
 
-# Exercise 72 - Validating Postal Codes
+# Exercise 71 - Regex - Validating Postal Codes
 
 # I will just modify lines 3 and 7 !
 
@@ -1336,8 +1259,7 @@ regex_alternating_repetitive_digit_pair = r"(\d)(?=(\d)\1)"
 # I put the lookahead assertion in order to find the match only when the same digit is met again (thanks to \1).
 
 
-
-# Exercise 73 - Matrix script
+# Exercise 72 - Regex - Matrix Script
 
 #!/bin/python3
 
@@ -1369,8 +1291,8 @@ modifiedcode = re.sub(r'(?<=[0-9a-zA-Z])[\s!@%&#$]+(?=[0-9a-zA-Z])',' ',unchange
 print(modifiedcode)
 
 
-# Exercise 74 - XML 1 - Find the score
 
+# Exercise 73 - Xml - XML 1 - Find the Score
 
 def get_attr_number(node):
     s = 0  # This will be the sum of then number of attributes of each key
@@ -1378,8 +1300,8 @@ def get_attr_number(node):
         s += len(item.attrib)  # I get the number of attributes of each element
     return (s)
 
-# Exercise 75 - XML2 - Find the Maximum Depth
 
+# Exercise 74 - Xml - XML 2 - Find the Maximum Depth
 
 
 maxdepth = 0
@@ -1393,7 +1315,7 @@ def depth(elem, level):
 
 
 
-# Exercise 76 - Standardize Mobile Number Using Decorators
+# Exercise 75 - Closures and decorators - Standardize Mobile Number Using Decorators
 
 def wrapper(f):
     def fun(l):
@@ -1408,10 +1330,7 @@ def wrapper(f):
     return fun
 
 
-
-# Exercise 77 - Decorators 2 - Name Directory
-
-
+# Exercise 76 - Closures and decorators - Decorators 2 - Name Directory
 
 def person_lister(f):
     def inner(people):
@@ -1421,11 +1340,7 @@ def person_lister(f):
     return inner
 
 
-
-
-# Exercise 78 - Arrays
-
-
+# Exercise 77 - Numpy - Arrays
 
 def arrays(arr):
     # complete this function
@@ -1436,7 +1351,8 @@ def arrays(arr):
     return(np.array(reversedlist, float)) # I take advantage of the structure of np.array (numpy.array) by specifying the type of the items of the array (float).
 
 
-# Exercise 79 - Shape and reshape
+
+# Exercise 78 - Numpy - Shape and Reshape
 
 import numpy as np
 
@@ -1445,7 +1361,8 @@ numbers = list(map(int, input().split())) # I willuse this list to create the ar
 print(np.reshape(np.array(numbers),(3,3))) # In a single line, I create the array from the list "numbers", reshape it into a 3x3 array and print the result
 
 
-# Exercise 80 - Transpose and flatten
+
+# Exercise 79 - Numpy - Transpose and Flatten
 
 import numpy as np
 
@@ -1463,7 +1380,8 @@ arrflatten = np.array(
 print(arrtransp)
 print(arrflatten)
 
-# Exercise 81 - Concatenate
+
+# Exercise 80 - Numpy - Concatenate
 
 import numpy as np
 
@@ -1476,7 +1394,8 @@ arraym = np.array([list(map(int,input().split())) for _ in range(m)]) # I create
 print(np.concatenate((arrayn,arraym), axis = 0))
 
 
-# Exercise 82 - Zeros and ones
+
+# Exercise 81 - Numpy - Zeros and Ones
 
 import numpy as np
 
@@ -1486,7 +1405,7 @@ print(np.zeros(arg, int), np.ones(arg, int), sep='\n') # I create and print the 
 
 
 
-# Exercise 83 - Eye and identity
+# Exercise 82 - Numpy - Eye and Identity
 
 import numpy as np
 # There is a bug in the test cases, I have to add a white space manually
@@ -1496,7 +1415,7 @@ n, m = list(map(int, input().split()))
 print(np.eye(n, m, k = 0))
 
 
-# Exercise 84 - Array mathematics
+# Exercise 83 - Numpy - Array Mathematics
 
 import numpy as np
 
@@ -1513,7 +1432,7 @@ print(np.power(A,B))
 # I simply do all the operations asked. Numpy provides all the techniques to do so.
 
 
-# Exercise 85 - Floor, ceil and rint
+# Exercise 84 - Numpy - Floor, Ceil and Rint
 
 import numpy as np
 # Once again, there is a problem with the white space so I checked on numpy library and I found the following line to introduce at the beginning of the code
@@ -1528,7 +1447,7 @@ print(np.ceil(array))
 print(np.rint(array))
 
 
-# Exercise 86 - Sum and prod
+# Exercise 85 - Numpy - Sum and Prod
 
 import numpy as np
 
@@ -1541,7 +1460,7 @@ print(np.prod(sumarray, axis = 0)) # I can directly add these two arrays and pri
 
 
 
-# Exercise 87 - Min and max
+# Exercise 86 - Numpy - Min and Max
 
 import numpy as np
 n, m = list(map(int,input().split())) # Dimension of the array
@@ -1551,7 +1470,7 @@ print(max(np.min(array, axis = 1))) # I can directly get the maximum of the list
 
 
 
-# Exercise 88 - Mean, var and Std
+# Exercise 87 - Numpy - Mean, Var, and Std
 
 import numpy as np
 # Once again, there is a problem with the output of this program, as it was created with an old version of numpy. To counter this issue, I set the print option of this old version, the 1.13 one
@@ -1565,7 +1484,7 @@ print(np.var(array, axis = 0))# I print the  var along axis 0
 print(np.std(array, axis = None)) # I print the std along axis None
 
 
-# Exercise 89 - Dot and cross
+# Exercise 88 - Numpy - Dot and Cross
 
 import numpy as np
 n = int(input()) # The matrix will be a NxN one
@@ -1576,8 +1495,7 @@ print(A.dot(B)) # I just have to use the dot function provided by numpy and prin
 
 
 
-
-# Exercise 90 - Inner and outer
+# Exercise 89 - Numpy - Inner and Outer
 
 import numpy as np
 
@@ -1590,7 +1508,7 @@ print(np.inner(A,B))
 print(np.outer(A,B))
 
 
-# Exercise 91 - Polynomials
+# Exercise 90 - Numpy - Polynomials
 
 import numpy as np
 
@@ -1600,8 +1518,8 @@ print (np.polyval(polynomial, x)) # I simply apply the polyval method to the lis
 
 
 
-# Exercise 92 - Linear algebra
-
+# Exercise 91 - Numpy - Linear Algebra
+​
 import numpy as np
 np.set_printoptions(legacy='1.13') # Once again, I have to introduce this line to bypass the problem of the old version of numpy
 
@@ -1613,18 +1531,9 @@ print (np.linalg.det(array))
 # I can now directly print the determinant of the matrix thanks to the linalg.det method
 
 
-
-
-
-
-
-
-# PROBLEM 2
-
-
-
-
-# Exercise 93 - Birthday Cake Candles
+# ===== PROBLEM2 =====
+​
+# Exercise 92 - Challenges - Birthday Cake Candles
 
 #!/bin/python3
 
@@ -1657,7 +1566,9 @@ if __name__ == '__main__':
     fptr.close()
 
 
-# Exercise 94 - Kangaroo
+
+
+# Exercise 93 - Challenges - Kangaroo
 
 # !/bin/python3
 
@@ -1700,7 +1611,8 @@ if __name__ == '__main__':
 
     fptr.close()
 
-# Exercise 95 - Viral advertising
+
+# Exercise 94 - Challenges - Viral Advertising
 
 #!/bin/python3
 
@@ -1733,7 +1645,7 @@ if __name__ == '__main__':
     fptr.close()
 
 
-# Exercise 96 - Recursive Digit Sum
+# Exercise 95 - Challenges - Recursive Digit Sum
 
 # !/bin/python3
 
@@ -1744,7 +1656,7 @@ import re
 import sys
 
 
-# Complete the superDigit function below.
+
 def superDigit(n, k):
     if len(
             n) == 1:  # If the string n is only composed of 1 item, it means that it is lower than 10 : its super digit is itself
@@ -1772,7 +1684,7 @@ if __name__ == '__main__':
 
 
 
-# Exercise 97 - Insertion sort - Part 1
+# Exercise 96 - Challenges - Insertion Sort - Part 1
 
 #!/bin/python3
 
@@ -1782,7 +1694,6 @@ import random
 import re
 import sys
 
-# Complete the insertionSort1 function below.
 def insertionSort1(n, arr):
     L = [] # I will store all the changed arrays in this list
     item = arr[-1] # I store the item I am considering (the last one) to compare it to all the ones that precede it
@@ -1801,7 +1712,8 @@ if __name__ == '__main__':
     insertionSort1(n, arr)
 
 
-# Exercise 98 - Insertion Sort - Part 2
+
+# Exercise 97 - Challenges - Insertion Sort - Part 2
 
 # !/bin/python3
 
@@ -1847,6 +1759,4 @@ if __name__ == '__main__':
 
 
 # END OF THE HOMEWORK CODES
-
-
 
